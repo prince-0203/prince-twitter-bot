@@ -37,12 +37,7 @@ Push the updates coming from `github nodejs-4-lts-openshift` into the OpenShift 
 git push
 ```
 
-That's it, you can now checkout your application at:
-
-  [http://node4-$yournamespace.rhcloud.com](http://node4-$yournamespace.rhcloud.com)
-  ( See env @ [http://node-$yournamespace.rhcloud.com/env](http://node-$yournamespace.rhcloud.com/env) )
-
-If you want another version of Node (example v0.12.x), you can change to that by just writing it to the end of the NODEJS_VERSION file and committing that change.
+That's it.If you want another version of Node (example v0.12.x), you can change to that by just writing it to the end of the NODEJS_VERSION file and committing that change.
 
 ```
 echo 0.12.7 >> .openshift/markers/NODEJS_VERSION
