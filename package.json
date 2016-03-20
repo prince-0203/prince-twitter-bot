@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "OpenShift Node.js 4 Stable Application",
   "author": "prince <mc.prince.0203@gmail.com> (https://github.com/prince-0203)",
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prince-0203/nodejs-4-lts-openshift.git"
