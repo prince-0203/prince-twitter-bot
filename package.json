@@ -8,8 +8,7 @@
     "url": "git+https://github.com/prince-0203/nodejs-4-lts-openshift.git"
   },
   "engines": {
-    "node": "^4.4.0",
-    "npm": "^2.15.0"
+    "node": "^4.4.0"
   },
   "private": true,
   "main": "index.js"
