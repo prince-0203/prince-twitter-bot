@@ -28,7 +28,7 @@ OpenShift上でアプリケーションを作成します。OpenShiftに登録�
 | 項目                             | 内容                                 |
 |----------------------------------|--------------------------------------|
 | Application name                 | アプリの名前です。                   |
-| Optional URL to a Git repository | 通常は`https://github.com/prince-0203/nodejs-4-lts-openshift.git`としてください。1番の手順でForkした場合は、そのリポジトリのURLにしてください。 |
+| Optional URL to a Git repository | 通常は[`https://github.com/prince-0203/nodejs-4-lts-openshift.git`](https://github.com/prince-0203/nodejs-4-lts-openshift.git)としてください。1番の手順でForkした場合は、そのリポジトリのURLにしてください。 |
 | Branch/tag                       | `master`としてください。             |
 | Scaling                          | 変更せず`No scaling`としてください。 |
 | Region                           | サーバーの(物理的な)場所です。<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/rande.html" target="_blank">こちら</a>の表から最適な場所を確認してください。 |
