@@ -12,5 +12,5 @@
     "npm": "^2.15.0"
   },
   "private": true,
-  "main": "server.js"
+  "main": "index.js"
 }
