@@ -15,7 +15,7 @@ rhc domain create <yournamespace>
 Create a nodejs application (you can name it anything via -a, -t here is   used to start with the default supported OpenShift nodejs application)
 
 ```
-rhc app create -a node4  -t nodejs-0.10
+rhc app create -a node4 -t nodejs-0.10
 ```
 
 Add this `github nodejs-4-lts-openshift` repository to the OpenShift git project remote
