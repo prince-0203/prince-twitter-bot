@@ -1,55 +1,42 @@
-# Running the latest (4.4.x) LTS Node[.js] version on Red Hat's OpenShift PaaS
-This git repository is a sample Node application along with the "orchestration" bits to help you run the latest (or a custom) version of Node on Red Hat's OpenShift PaaS.
+# OpenShift上のNode.jsを使用したTwitterBotのサンプル
 
-(Current) NodeJS Version: 4.4.0
+## 使い方
+### 1. Node.jsのバージョンを指定
+このリポジトリではNode.jsのバージョンは4.4.0になっています。変更する場合はこのリポジトリをForkし、以下のファイルを変更してください。
 
-## Steps to get the latest Node.js version running on OpenShift
-Create an account at [http://openshift.redhat.com/](http://openshift.redhat.com/)
+- `package.json`の11行目
+- `nodejs-4-lts-openshift/.openshift/markers/NODEJS_VERSION`の5行目
 
-Create a namespace, if you haven't already do so
+### 2. OpenShift client tools (rhc)のインストール
+まだインストールしていない場合、<a href="https://developers.openshift.com/en/getting-started-overview.html" target="_blank">こちら</a>の指示に従ってOpenShift client tools (rhc)をインストールしてください。
+なお、現時点でWindowsバージョンは正常に動作しないようですので、Windowsを使用している場合はCygwin Terminal上で以下のコマンドでインストールし、OpenShift関連の操作はCygwin Terminalを使用して行ってください。
 
+```shell
+$ gem install rhc
 ```
+
+### 2. NameSpaceの作成
+まだNameSpaceを作成していない場合は、以下のコマンドで作成してください。
+
+```shell
 rhc domain create <yournamespace>
 ```
 
-Create a nodejs application (you can name it anything via -a, -t here is   used to start with the default supported OpenShift nodejs application)
+### 3. アプリケーションの作成
+OpenShift上でアプリケーションを作成します。OpenShiftに登録した後<a href="https://openshift.redhat.com/app/console/application_type/cart!nodejs-0.10" target="_blank">こちら</a>にアクセスし、以下の通り入力してください。
 
-```
-rhc app create -a node4 -t nodejs-0.10
-```
+| 項目                             | 内容                                 |
+|----------------------------------|--------------------------------------|
+| Application name                 | アプリの名前です。                   |
+| Optional URL to a Git repository | 通常は`https://github.com/prince-0203/nodejs-4-lts-openshift.git`としてください。1番の手順でForkした場合は、そのリポジトリのURLにしてください。 |
+| Branch/tag                       | `master`としてください。             |
+| Scaling                          | 変更せず`No scaling`としてください。 |
+| Region                           | サーバーの(物理的な)場所です。<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/rande.html" target="_blank">こちら</a>の表から最適な場所を確認してください。 |
 
-Add this `github nodejs-4-lts-openshift` repository to the OpenShift git project remote
+入力が終わったら、`Create Application`をクリックしてください。
 
-```
-cd node4
-git remote add github -m master https://github.com/prince-0203/nodejs-4-lts-openshift.git
-```
-
-Get updates from the remote with merge conflicts properly resolved (NB: don't run `git pull github` alone)     
-
-```
-git pull -s recursive -X theirs github master
-```
-
-Push the updates coming from `github nodejs-4-lts-openshift` into the OpenShift git project.
-
-```
-git push
-```
-
-That's it.If you want another version of Node (example v0.12.x), you can change to that by just writing it to the end of the NODEJS_VERSION file and committing that change.
-
-```
-echo 0.12.7 >> .openshift/markers/NODEJS_VERSION
-#
-# Or alternatively, edit the .openshift/markers/NODEJS_VERSION file
-# in your favorite editor aka vi ;^)
-#
-#
-git commit . -m 'use Node version 0.12.7'
-```
-
-Then push the repo to OpenShift with `git push`
-
-## Additional information
-This repository is a fork of [Ramr nodejs custom version](https://github.com/ramr/nodejs-custom-version-openshift). See it for documentation about Openshift hooks or if you want additional information.
+### 4. 完了
+GitリポジトリのURLが表示されるので、Cloneして自由に編集してください。ただし、以下の点に気を付けてください。
+- アプリはプッシュ時に自動でデプロイされます。
+- `package.json`の`main`で指定されているコードがデプロイ後に自動で開始されます。
+- `index.js`のHTTPサーバのコードはデプロイ後の自動動作確認に必要なので、削除しないでください。削除するとデプロイ(プッシュ)に失敗します。TwitterBotのコードはその下に書いてください。
