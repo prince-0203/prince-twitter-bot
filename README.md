@@ -23,7 +23,7 @@ rhc domain create <yournamespace>
 ```
 
 ### 3. アプリケーションの作成
-OpenShift上でアプリケーションを作成します。OpenShiftに登録した後<a href="https://openshift.redhat.com/app/console/application_type/cart!nodejs-0.10" target="_blank">こちら</a>にアクセスし、以下の通り入力してください。または、以下の画像をクリックしてください。
+OpenShift上でアプリケーションを作成します。OpenShiftに登録した後<a href="https://openshift.redhat.com/app/console/application_type/cart!nodejs-0.10" target="_blank">こちら</a>にアクセスし、以下の通り入力してください。または、以下の画像をクリックしてください。  
 [![LAUNCH ON OpenShift](http://launch-shifter.rhcloud.com/launch/LAUNCH ON.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=nodejs-0.10&initial_git_url=https://github.com/prince-0203/nodejs-4-lts-openshift.git&name=launch)
 
 | 項目                             | 内容                                 |
