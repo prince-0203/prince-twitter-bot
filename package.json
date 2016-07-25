@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-4-stable-Sample",
+  "name": "openshift-nodejs-4-example",
   "version": "1.0.0",
-  "description": "OpenShift Node.js 4 Stable Application",
+  "description": "OpenShift Node.js 4 Application",
   "author": "prince <mc.prince.0203@gmail.com> (https://github.com/prince-0203)",
   "scripts": {
     "start": "node index.js"
