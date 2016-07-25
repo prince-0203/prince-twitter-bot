@@ -6,13 +6,13 @@ node_js:
 
 install:
   - npm install
-  
+
 deploy:
   provider: openshift
   user: mc.prince.0203@gmail.com
   password:
     secure:   pMZgJg4FP4UV8uxcKBRmJZ7lEXmmNKYNGEFDGQmEMjYtPQsnWiQxCYF9eZ9scPs0vIUYatZD6XX52gf/lHeSUUhKvxYgJV7uCgQbJisoIlLpLTKtTQhQ71ChDcupD6bzQ1eoP5AxITYUyH3ZVXL5gBVAWtYgsqc028jFcOLbgU84yrlkBA5yMJf25V47ypHNQNWfpKIv5/ZImcO0R5dNidWZSgfcCO5TjZ5OsseQauOHGJy5+eJRt8FG6Trvt+LsVRtzwPmJRkA0Q3XNlb9mW9ajSTJtL4ENXNSaCkUVMRt3ZPY0UGrh9bwNwlszMlg9SpswYivjZ63DaUMPoLWdGsQIHOa+eRyIIl0VdsKqFsRZDR18kACGp3azPOQx0Tf/CJm9kYaSN/IiEX2oxMGQR7T3zutXI7LiRUnm4KmlXfHD9RH7pckZ3kncbrKjee0OtV7w18PEMO4pZ9OyPYC5WxLIg/bRsIc2zmCFO/pLCFyXEcDVnZJdX4TfN+otHuOYh05Br/mKOxsIM8s5zY+tJHa2NYqgRSyeprv6LVnA6L046UEUqlf+ihNgkzBqXUEqZUNeGpCebvm+zbHjG8PcSsWzFnNTIOpgBRN+qqehc5r1vTM0UZ97uAuoMh7zXwtvua0Ao9ndYYHqqBCDoDSaDnoWUWOAuxhTFHu5gNrtzl8=
   app: princetwitterbot
-  domain: rhcloud.com
+  domain: prince0203
   on:
     repo: prince-0203/prince-twitter-bot
