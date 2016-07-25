@@ -20,5 +20,8 @@
     "url": "https://github.com/prince-0203/prince-twitter-bot/issues"
   },
   "homepage": "https://github.com/prince-0203/prince-twitter-bot#readme",
-  "dependencies": {}
+  "dependencies": {
+    "log-symbols": "^1.0.2",
+    "twit": "^2.2.4"
+  }
 }
