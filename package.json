@@ -1,18 +1,24 @@
 {
-  "name": "openshift-nodejs-4-example",
+  "name": "prince-twitter-bot",
+  "private": true,
   "version": "1.0.0",
-  "description": "OpenShift Node.js 4 Application",
-  "author": "prince <mc.prince.0203@gmail.com> (https://github.com/prince-0203)",
+  "description": "@prince__0203をいろいろ自動化",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/prince-0203/nodejs-4-lts-openshift.git"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
     "node": "4.4.7"
   },
-  "private": true,
-  "main": "index.js"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prince-0203/prince-twitter-bot.git"
+  },
+  "author": "prince <mc.prince.0203@gmail.com> (https://github.com/prince-0203)",
+  "bugs": {
+    "url": "https://github.com/prince-0203/prince-twitter-bot/issues"
+  },
+  "homepage": "https://github.com/prince-0203/prince-twitter-bot#readme",
+  "dependencies": {}
 }
