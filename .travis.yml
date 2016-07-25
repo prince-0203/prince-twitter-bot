@@ -6,7 +6,3 @@ node_js:
 
 install:
   - npm install
-
-script:
-  - npm start
-  - curl localhost:8080 --connect-timeout 10 --max-time 15 --verbose --fail
