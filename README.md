@@ -2,7 +2,7 @@
 
 ## 使い方
 ### 1. Node.jsのバージョンを指定
-このリポジトリではNode.jsのバージョンは4.4.0になっています。変更する場合はこのリポジトリをForkし、以下のファイルを変更してください。
+このリポジトリではNode.jsのバージョンは4.4.7になっています。変更する場合はこのリポジトリをForkし、以下のファイルを変更してください。
 
 - [`package.json`の14行目](package.json#L14)
 - [`nodejs-4-lts-openshift/.openshift/markers/NODEJS_VERSION`の5行目](.openshift/markers/NODEJS_VERSION#L5)
@@ -24,12 +24,12 @@ rhc domain create <yournamespace>
 
 ### 3. アプリケーションの作成
 OpenShift上でアプリケーションを作成します。OpenShiftに登録した後<a href="https://openshift.redhat.com/app/console/application_type/cart!nodejs-0.10" target="_blank">こちら</a>にアクセスし、以下の通り入力してください。または、以下の画像をクリックしてください。  
-[![LAUNCH ON OpenShift](http://launch-shifter.rhcloud.com/launch/LAUNCH ON.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=nodejs-0.10&initial_git_url=https://github.com/prince-0203/nodejs-4-lts-openshift.git&name=launch)
+[![LAUNCH ON OpenShift](http://launch-shifter.rhcloud.com/launch/LAUNCH ON.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=nodejs-0.10&initial_git_url=https://github.com/prince-0203/openshift-nodejs-4.git&name=launch)
 
 | 項目                             | 内容                                 |
 |----------------------------------|--------------------------------------|
 | Application name                 | アプリの名前です。                   |
-| Optional URL to a Git repository | 通常は[`https://github.com/prince-0203/nodejs-4-lts-openshift.git`](https://github.com/prince-0203/nodejs-4-lts-openshift.git)としてください。1番の手順でForkした場合は、そのリポジトリのURLにしてください。 |
+| Optional URL to a Git repository | 通常は[`https://github.com/prince-0203/openshift-nodejs-4.git`](https://github.com/prince-0203/openshift-nodejs-4.git)としてください。1番の手順でForkした場合は、そのリポジトリのURLにしてください。 |
 | Branch/tag                       | `master`としてください。             |
 | Scaling                          | 変更せず`No scaling`としてください。 |
 | Region                           | サーバーの(物理的な)場所です。<a href="https://docs.aws.amazon.com/ja_jp/general/latest/gr/rande.html" target="_blank">こちら</a>の表から最適な場所を確認してください。 |
@@ -40,4 +40,4 @@ OpenShift上でアプリケーションを作成します。OpenShiftに登録�
 GitリポジトリのURLが表示されるので、Cloneして自由に編集してください。ただし、以下の点に気を付けてください。
 - アプリはプッシュ時に自動でデプロイされます。
 - [`package.json`の`scripts.start`](package.json#L7)に書かれているコマンドがデプロイ後に自動で開始されます。
-- [`index.js`](index.js)のHTTPサーバのコードはデプロイ後の自動動作確認に必要なので、削除しないでください。削除するとデプロイ(プッシュ)に失敗します。TwitterBotのコードはその下に書いてください。
+- [`index.js`](index.js)のHTTPサーバのコードはデプロイ後の自動動作確認に必要なので、削除しないでください。削除するとデプロイ(プッシュ)に失敗します。アプリのコードはその下に書いてください。
