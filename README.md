@@ -5,7 +5,7 @@
 このリポジトリではNode.jsのバージョンは4.4.7になっています。変更する場合はこのリポジトリをForkし、以下のファイルを変更してください。
 
 - [`package.json`の14行目](package.json#L14)
-- [`nodejs-4-lts-openshift/.openshift/markers/NODEJS_VERSION`の5行目](.openshift/markers/NODEJS_VERSION#L5)
+- [`nodejs-4-lts-openshift/.openshift/markers/NODEJS_VERSION`の5行目](.openshift/markers/NODEJS_VERSION#L5)**(重要)**
 
 ### 2. OpenShift client tools (rhc)のインストール
 まだインストールしていない場合、<a href="https://developers.openshift.com/en/getting-started-overview.html" target="_blank">こちら</a>の指示に従ってOpenShift client tools (rhc)をインストールしてください。
