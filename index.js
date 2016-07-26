@@ -23,19 +23,21 @@ const krtr_date = {
 };
 
 // 日付切取線のツイートを自動リツイート
-const stream = twit.stream('statuses/filter', { follow: krtr_date.id });
+(() => {
+  const stream = twit.stream('statuses/filter', { follow: krtr_date.id });
 
-stream.on('tweet', function(tweet) {
-  // 自動でリツイート
-  twit.post('statuses/retweet/:id', { id: tweet.id_str, trim_user: true }, function (err, data, response) {
-    if(err) {
-      console.log(logSymbols.error, 'リツイート中にエラーが発生しました…', err);
-    } else {
-      console.log(logSymbols.success, 'リツイートに成功しました。', data);
-    }
+  stream.on('tweet', function(tweet) {
+    // 自動でリツイート
+    twit.post('statuses/retweet/:id', { id: tweet.id_str, trim_user: true }, function (err, data, response) {
+      if(err) {
+        console.log(logSymbols.error, 'リツイート中にエラーが発生しました…', err);
+      } else {
+        console.log(logSymbols.success, 'リツイートに成功しました。', data);
+      }
+    });
   });
-});
 
-stream.on('error', function(err) {
-  console.log(logSymbols.error, 'Streamでエラーが発生しました…', err);
-});
+  stream.on('error', function(err) {
+    console.log(logSymbols.error, 'Streamでエラーが発生しました…', err);
+  });
+})();
