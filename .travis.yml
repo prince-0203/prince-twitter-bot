@@ -1,6 +1,8 @@
 sudo: false
 
-language: ruby
+language: node_js
+node_js:
+  - 4.4.7
 
 install: true
 
