@@ -1,6 +1,10 @@
 sudo: false
 
-language: node_js
+language: ruby
+
+install: true
+
+script: true
 
 deploy:
   provider: openshift
