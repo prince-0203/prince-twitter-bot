@@ -1,5 +1,6 @@
 require('./openShiftServer.js')();
 
+const fs = require('fs');
 const logSymbols = require('log-symbols');
 const Twit = require('twit');
 
@@ -26,9 +27,9 @@ const krtr_date = {
 (() => {
   const stream = twit.stream('statuses/filter', { follow: krtr_date.id });
 
-  stream.on('tweet', function(tweet) {
+  stream.on('tweet', (tweet) => {
     // 自動でリツイート
-    twit.post('statuses/retweet/:id', { id: tweet.id_str, trim_user: true }, function (err, data, response) {
+    twit.post('statuses/retweet/:id', { id: tweet.id_str, trim_user: true }, (err, data) => {
       if(err) {
         console.log(logSymbols.error, 'リツイート中にエラーが発生しました…', err);
       } else {
@@ -37,7 +38,41 @@ const krtr_date = {
     });
   });
 
-  stream.on('error', function(err) {
+  stream.on('error', (err) => {
     console.log(logSymbols.error, 'Streamでエラーが発生しました…', err);
+  });
+})();
+
+// 1分ごとにプロフィール画像を変更
+(() => {
+  fs.readdir('profile_images', (err, imageFileList) => {
+    if (err) {
+      console.log(logSymbols.error, 'プロフィール画像リストの読み込み中にエラーが発生しました…', err);
+    } else {
+      const imageFilesBase64 = imageFileList.map((imageFile) => {
+        try {
+          return fs.readFileSync('profile_images\\' + imageFile).toString('base64');
+        } catch(err) {
+          console.log(logSymbols.error, 'プロフィール画像の読み込み中にエラーが発生しました…', err);
+          return null;
+        }
+      });
+
+      var i = 0;
+      setInterval(() => {
+        twit.post('account/update_profile_image', { image: imageFilesBase64[i], include_entities: false, skip_status: true }, (err, data) => {
+          if(err) {
+            console.log(logSymbols.error, 'プロフィール画像の設定中にエラーが発生しました…', err);
+          } else {
+            console.log(logSymbols.success, 'プロフィール画像の設定に成功しました。', data);
+          }
+
+          i++;
+          if(i >= imageFilesBase64.length) {
+            i = 0;
+          }
+        });
+      }, 1000 * 60);
+    }
   });
 })();
