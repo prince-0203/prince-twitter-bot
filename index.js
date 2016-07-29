@@ -51,7 +51,7 @@ const krtr_date = {
     } else {
       const imageFilesBase64 = imageFileList.map((imageFile) => {
         try {
-          return fs.readFileSync('profile_images\\' + imageFile).toString('base64');
+          return fs.readFileSync('profile_images/' + imageFile).toString('base64');
         } catch(err) {
           console.log(logSymbols.error, 'プロフィール画像の読み込み中にエラーが発生しました…', err);
           return null;
