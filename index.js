@@ -28,14 +28,16 @@ const krtr_date = {
   const stream = twit.stream('statuses/filter', { follow: krtr_date.id });
 
   stream.on('tweet', (tweet) => {
-    // 自動でリツイート
-    twit.post('statuses/retweet/:id', { id: tweet.id_str, trim_user: true }, (err, data) => {
-      if(err) {
-        console.log(logSymbols.error, 'リツイート中にエラーが発生しました…', err);
-      } else {
-        console.log(logSymbols.success, 'リツイートに成功しました。', data);
-      }
-    });
+    if(tweet.user.id_str === krtr_date && tweet.text.indexOf('✄------------') === 0) {
+      // 自動でリツイート
+      twit.post('statuses/retweet/:id', { id: tweet.id_str, trim_user: true }, (err, data) => {
+        if(err) {
+          console.log(logSymbols.error, 'リツイート中にエラーが発生しました…', err);
+        } else {
+          console.log(logSymbols.success, 'リツイートに成功しました。', data);
+        }
+      });
+    }
   });
 
   stream.on('error', (err) => {
