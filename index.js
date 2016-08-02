@@ -28,7 +28,7 @@ const krtr_date = {
   const stream = twit.stream('statuses/filter', { follow: krtr_date.id });
 
   stream.on('tweet', (tweet) => {
-    if(tweet.user.id_str === krtr_date && tweet.text.indexOf('✄------------') === 0) {
+    if(tweet.user.id_str === krtr_date.id && tweet.text.indexOf('✄------------') === 0) {
       // 自動でリツイート
       twit.post('statuses/retweet/:id', { id: tweet.id_str, trim_user: true }, (err, data) => {
         if(err) {
