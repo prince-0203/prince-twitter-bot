@@ -46,6 +46,7 @@ const krtr_date = {
 })();
 
 // 1分ごとにプロフィール画像を変更
+/*
 (() => {
   fs.readdir('profile_images', (err, imageFileList) => {
     if (err) {
@@ -78,3 +79,4 @@ const krtr_date = {
     }
   });
 })();
+*/
